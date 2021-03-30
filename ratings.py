@@ -9,7 +9,7 @@ def restaurant_ratings_scores(filename):
     for line in restaurant_data:
         restaurant_name = line.rstrip().split(':')[0]
         rating = line.rstrip().split(':')[1]
-        restaurant_dict[restaurant_name] = rating
+        restaurant_dict[restaurant_name] = int(rating)
 
     return restaurant_dict    
 
@@ -23,7 +23,7 @@ def print_ratings(scores_dict):
 def user_input(scores_dict):
 
     user_restaurant_name = input("Enter the restaurant name: ")
-    user_rating = input("Enter the restaurant's rating: ")
+    user_rating = int(input("Enter the restaurant's rating: "))
     scores_dict[user_restaurant_name] = user_rating
 
     return scores_dict
