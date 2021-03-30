@@ -1,6 +1,6 @@
 """Restaurant rating lister."""
 
-def restaurant_ratings_list(filename):
+def restaurant_ratings_scores(filename):
 
     restaurant_data = open(filename)
 
@@ -14,22 +14,23 @@ def restaurant_ratings_list(filename):
     return restaurant_dict    
 
 
-def ordered_ratings(rated_dict):
+def print_ratings(scores_dict):
 
-  for restaurant_name, rating in sorted(rated_dict.items()):
+  for restaurant_name, rating in sorted(scores_dict.items()):
       print(f"{restaurant_name} is rated at {rating}")
 
 
-def user_input(original_dict):
+def user_input(scores_dict):
 
     user_restaurant_name = input("Enter the restaurant name: ")
     user_rating = input("Enter the restaurant's rating: ")
-    original_dict[user_restaurant_name] = user_rating
+    scores_dict[user_restaurant_name] = user_rating
 
-    return original_dict
+    return scores_dict
 
-scores_list = restaurant_ratings_list("scores.txt")    
+
+scores_list = restaurant_ratings_scores("scores.txt")    
 
 user_input(scores_list)
 
-ordered_ratings(scores_list)
+print_ratings(scores_list)
